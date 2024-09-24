@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca:wght@100..900&family=Outfit&display=swap');
+
+/* CSS Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* Việc sử dụng display: block trên phần tử img có thể giúp bạn dễ dàng kiểm soát bố cục và phong cách của hình ảnh trong trang web của mình.*/
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* CSS Variables */
+:root {
+    --clr-primary-300: hsl(31, 77%, 52%);
+    --clr-primary-500: hsl(184, 100%, 22%);
+    --clr-primary-600: hsl(179, 100%, 13%);
+
+    --clr-neutral-100: hsla(0, 0%, 100%, 0.75);
+    --clr-neutral-200: hsl(0, 0%, 95%);
+
+    --ff-lexend-deca: "Lexenc Deca", sans-serif;
+    --ff-big-shoulders-display: "Big Shoulder Display", sans-serif;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --fs-400: 0.9375rem;
+    --fs-900: 2.5rem;
+}
+
+body {
+    background-color: var(--clr-neutral-200);
+    display: flex;
+    justify-content: center; /* QUAN TRỌNG */
+    align-items: center; /* QUAN TRỌNG */
+    padding: 1.25rem; /* bỏ đi ko ảnh hưởng */
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 20.5rem;
+    font-family: var(--ff-lexend-deca);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-regular);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* QUAN TRỌNG */
+    gap: 1.625rem;
+}
+
+.card__img {
+    width: 4rem;
+    height: 2.5rem;
+}
+
+.card__heading {
+    text-transform: uppercase;
+    color: var(--clr-neutral-200);
+    font-family: var(--ff-big-shoulders-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-900);
+    margin-top: 0.5625rem;
+}
+
+.card__text {
+    color: var(--clr-neutral-100);
+    line-height: 1.55 rem;
+}
+
+.card__button {
+    background-color: var(--clr-neutral-200);
+    border: 2px solid var(--clr-neutral-200);
+    border-radius: 30px;
+    padding: 0.75rem 1.875rem;
+    margin-top: auto;
+}
+
+.card__button:hover,
+.card__button:active {
+    cursor: pointer;
+    color: var(--clr-neutral-200)
+}
+
+.card__button--sedans {
+    color: var(--clr-primary-300);
+}
+
+.card__button--suvs {
+    color: var(--clr-primary-500);
+}
+
+.card__button--luxury {
+    color: var(--clr-primary-600);
+}
+
+
+.column__card--sedans {
+    background-color: var(--clr-primary-300);
+}
+
+.column__card--suvs {
+    background-color: var(--clr-primary-500);
+}
+
+.column__card--luxury {
+    background-color: var(--clr-primary-600);
+}
+
+/* --------------- Media Queries --------------- */
+@media (min-width: 45.3125rem) {
+    .container {
+        max-width: 38.75rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* .card--luxury {
+        grid-column: 1 / span 2;
+        align-items: center;
+        text-align: center;
+    } */
+}
+
+@media (min-width: 60.9375rem) {
+    .container {
+        max-width: 57.5rem;
+        grid-template-columns: repeat(3, 1fr);
+        transform: translateY(20px);
+
+    }
+
+    /* .card--luxury {
+        grid-column: 3;
+        align-items: flex-start;
+        text-align: left;
+    } */
+
+    .card__text {
+        margin-bottom: 3.625rem;
+    }
+}
